@@ -63,11 +63,25 @@ python host/proto_lab.py --selftest   # run all 9 protocol self-tests
 ## Repository Layout / 目录结构
 
 ```
-firmware/      prebuilt firmware (.hex/.bin)
-host/          Python host tools
-host/examples/ sample .sr captures and a CSV log example
-docs/          BOM and documentation
+firmware/         prebuilt firmware (.hex/.bin)
+firmware/src/     complete firmware C source + standalone Makefile (see BUILD.md)
+host/             Python host tools
+host/examples/    sample .sr captures and a CSV log example
+docs/             BOM and documentation
 ```
+
+## Build from Source / 从源码编译固件
+
+The complete firmware source is in `firmware/src/`. With the WCH RISC-V
+toolchain (bundled with MounRiver Studio) on your `PATH`:
+
+```bash
+cd firmware/src
+make            # UART firmware
+make SQUARE=1   # 1 kHz square-wave firmware
+```
+
+See [firmware/src/BUILD.md](firmware/src/BUILD.md) for the full guide.
 
 ## Roadmap / 后续规划
 

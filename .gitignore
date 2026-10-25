@@ -9,6 +9,14 @@ venv/
 host/analyzer_log.csv
 *.sr.tmp
 
+# Firmware build output
+firmware/src/build/
+*.o
+*.d
+*.lst
+*.map
+*.elf
+
 # Editor / OS
 .vscode/
 .idea/
