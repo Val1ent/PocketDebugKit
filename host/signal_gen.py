@@ -3,7 +3,7 @@
 """
 信号发生器控制台：通过 USB CDC(COM4) 给设备发命令
   输入频率数字(如 1000) -> 设备输出该频率方波 (范围 1~5000Hz)
-  输入 u                -> 切回软件 UART（发 Hello HJS）
+  输入 u                -> 切回软件 UART（发 Hello CH32）
   输入 q                -> 退出
 用法： py -3.12 signal_gen.py
 """
