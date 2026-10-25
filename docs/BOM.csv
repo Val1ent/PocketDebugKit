@@ -1,0 +1,13 @@
+﻿序号,物料名称,型号/规格,数量,说明
+1,RISC-V 开发板,MuseLab nanoCH32H417（CH32H417QEU6）,1,主控，板载 WCH-Link
+2,Type-C 数据线,USB2.0,2,USB-FS 数据口 + WCH-Link 烧录口
+3,杜邦线,公对公,3,A15 环回 D0 等信号连接
+4,电脑,Windows / Python3.12 / PulseView,1,上位机运行环境
+可选演示模块（对应扩展协议，非必须）,,,,
+,红外接收头,38kHz 一体接收（如 VS1838B）,1,NEC / RC-5 红外解码
+,舵机,SG90 等,1,舵机 PWM/PPM
+,超声波模块,HC-SR04,1,超声测距
+,4 线风扇,PWM 风扇（带 TACH）,1,风扇转速
+,步进电机+驱动,28BYJ-48/42 步进,1,STEP/DIR
+,正交编码器,A/B/Z 增量编码器,1,编码器解码
+,SPI/I2C 模块,Flash/传感器/OLED,1,SPI / I2C 解码
