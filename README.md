@@ -7,6 +7,7 @@ based on the WCH **CH32H417** (RISC-V, QingKe V3F, 100 MHz).
 
 ## Features / 功能
 
+- **Graphical Application** — a desktop GUI to capture, view waveforms, decode and measure with the mouse (no terminal commands needed). See [app/README.md](app/README.md).
 - **Logic Analyzer** — 8 channels (PD0–PD7), 10 kHz sampling, streamed over USB2.0 Full-Speed CDC.
 - **Self-contained decoding** — decodes UART to text directly in Python (no PulseView needed), logs to CSV.
 - **Signal Generator** — outputs a stable 1 kHz square wave (or a software-UART test message) for a self-loop test: the device generates, captures and decodes its own signal.
@@ -33,7 +34,14 @@ GPIO sampling → USB2.0 CDC bulk upload → PC Python receive → display / dec
 
 1. Flash `firmware/UART_10kHz.hex` (or `.bin`) with MounRiver Studio / OpenOCD via WCH-Link.
 2. Connect **A15 → D0** with a jumper wire.
-3. Run the host tools with Python 3.12 (`pip install pyserial pillow`):
+3. Run the graphical application (Python 3.12):
+
+```bash
+pip install -r app/requirements.txt
+python app/main.py
+```
+
+The command-line host tools are also available (`pip install pyserial pillow`):
 
 ```bash
 python host/capture3.py    # capture and build a PulseView .sr
@@ -63,6 +71,7 @@ python host/proto_lab.py --selftest   # run all 9 protocol self-tests
 ## Repository Layout / 目录结构
 
 ```
+app/              graphical desktop application (PySide6 + pyqtgraph)
 firmware/         prebuilt firmware (.hex/.bin)
 firmware/src/     complete firmware C source + standalone Makefile (see BUILD.md)
 host/             Python host tools
@@ -85,8 +94,9 @@ See [firmware/src/BUILD.md](firmware/src/BUILD.md) for the full guide.
 
 ## Roadmap / 后续规划
 
-16 channels, 200 MHz sampling, USB3.0 high-speed upload, burst sampling
-architecture, in-firmware edge triggering.
+- **Hardware abstraction**: a unified data-source layer so the software works with any capture board (not only CH32), as well as with `.sr`/`.bin`/`.vcd` files.
+- **GUI**: continuous live capture, signal-generator control panel, settings persistence, packaged standalone executables.
+- **Hardware**: 16 channels, higher sampling rates, USB high-speed upload, burst sampling architecture, in-firmware edge triggering.
 
 ## License
 
